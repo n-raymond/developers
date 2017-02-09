@@ -34,4 +34,4 @@ fi
 docker build -t $IMAGE_NAME:latest --no-cache .
 
 # Run container from postgres-storage image on port 5433
-docker run --name $CONTAINER_NAME -e POSTGRES_PASSWORD=$PASSWORD -p $PORT:5432 -d $IMAGE_NAME:latest
+docker run --name $CONTAINER_NAME -e POSTGRES_PASSWORD=$PASSWORD -p $PORT:5432 $IMAGE_NAME:latest
