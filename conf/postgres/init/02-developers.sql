@@ -3,7 +3,7 @@ CREATE TABLE developer(
   id SERIAL PRIMARY KEY,
   first_name VARCHAR NOT NULL,
   last_name VARCHAR NOT NULL,
-  language_id INT NOT NULL REFERENCES language(id)
+  language_id INT REFERENCES language(id)
 );
 
 INSERT INTO developer VALUES(0, 'Larry', 'Bambelle', 0);

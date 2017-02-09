@@ -51,6 +51,10 @@ public class Developer {
     return language;
   }
 
+  public void setLanguage(Language language) {
+    this.language = language;
+  }
+
 
   /* Object methods */
 
