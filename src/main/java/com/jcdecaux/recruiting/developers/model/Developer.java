@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Developer {
 
-  private UUID id;
+  private long id;
   private String firstName;
   private String lastName;
   private Language language;
@@ -14,7 +14,7 @@ public class Developer {
   public Developer() {
   }
 
-  public Developer(UUID id, String firstName, String lastName, Language language) {
+  public Developer(long id, String firstName, String lastName, Language language) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -24,7 +24,7 @@ public class Developer {
 
   /* Getters / Setters */
 
-  public UUID getId() {
+  public long getId() {
     return id;
   }
 
@@ -50,7 +50,7 @@ public class Developer {
 
     Developer developer = (Developer) o;
 
-    if (id != null ? !id.equals(developer.id) : developer.id != null) return false;
+    if (id != developer.id) return false;
     if (firstName != null ? !firstName.equals(developer.firstName) : developer.firstName != null) return false;
     if (lastName != null ? !lastName.equals(developer.lastName) : developer.lastName != null) return false;
     return language != null ? language.equals(developer.language) : developer.language == null;
@@ -58,7 +58,7 @@ public class Developer {
 
   @Override
   public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
+    int result = (int) (id ^ (id >>> 32));
     result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
     result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
     result = 31 * result + (language != null ? language.hashCode() : 0);
